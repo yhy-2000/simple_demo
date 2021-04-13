@@ -5,7 +5,7 @@ import time
 from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 
-
+# 利用pandas读取tsv，先按行icol，再利用下标索引到每一行中的元素
 def get_url():
     import pandas as pd
     lines=pd.read_csv("./Validation_GCC-1.1.0-Validation.tsv",delimiter='\t')
@@ -26,6 +26,7 @@ path='./test/'
 
 queue=list(range(0,len(urls)))
 
+# 循环直到把全部url下载完
 while len(queue)>0:
     for i in range(66,len(urls)):
         url = urls[i]
